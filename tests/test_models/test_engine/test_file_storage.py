@@ -112,4 +112,11 @@ class TestFileStorage(unittest.TestCase):
         string = json.dumps(new_dict)
         with open("file.json", "r") as f:
             js = f.read()
-        self.assertEqual(json.loads(string), json.loads(js))
+    elf.assertEqual(json.loads(string), json.loads(js))
+
+    def test_count(self):
+        """Test counting the number of objects in storage"""
+    storage = FileStorage()
+    count = storage.count()
+
+    assert count >= 1, "Expected count of objects to be at least 1"
