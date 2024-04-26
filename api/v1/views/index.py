@@ -21,6 +21,7 @@ MODEL_MAPPING = {
     User: 'users'
 }
 
+
 @app_views.route('/status')
 def get_status():
     """Gets the status of the API"""
