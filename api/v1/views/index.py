@@ -11,32 +11,15 @@ from models.place import Place
 from models.state import State
 from models.review import Review
 
-# Define a dictionary mapping model classes to their corresponding names
-MODEL_MAPPING = {
-    Amenity: 'amenities',
-    City: 'cities',
-    Place: 'places',
-    Review: 'reviews',
-    State: 'states',
-    User: 'users'
-}
-
-
-@app_views.route('/status')
-def get_status():
-    """Gets the status of the API"""
-    status_check = {"status": "OK"}
-    return jsonify(status_check)
-
-
-@app_views.route('/stats')
+@app_views.route('/stats', methods=['GET'])
 def retrieve_object_number():
     """Retrieves the number of each object by type"""
-    object_dict = {}
+    object_list = [Amenity, City, Place, Review, State, User]
+    name_list = ['amenities', 'cities', 'places', 'reviews', 'states', 'users']
 
-    # Iterate over the model classes and count instances
-    for model_cls in MODEL_MAPPING:
-        object_count = storage.count(model_cls)
-        object_dict[MODEL_MAPPING[model_cls]] = object_count
+    object_dict = {}
+    for index, object in enumerate(object_list):
+        object_count = storage.count(object)
+        object_dict[name_list[index]] = object_count
 
     return jsonify(object_dict)
