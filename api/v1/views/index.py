@@ -1,25 +1,30 @@
 #!/usr/bin/python3
-"""index module"""
-
+"""index"""
+from api.v1.views import app_views
 from flask import jsonify
 from models import storage
-from api.v1.views import app_views
-from models.amenity import Amenity
-from models.city import City
 from models.user import User
 from models.place import Place
 from models.state import State
+from models.city import City
+from models.amenity import Amenity
 from models.review import Review
 
+classes = {"users": "User", "places": "Place", "states": "State",
+           "cities": "City", "amenities": "Amenity",
+           "reviews": "Review"}
+
+
+@app_views.route('/status', methods=['GET'])
+def status():
+    ''' routes to status page '''
+    return jsonify({'status': 'OK'})
+
+
 @app_views.route('/stats', methods=['GET'])
-def retrieve_object_number():
-    """Retrieves the number of each object by type"""
-    object_list = [Amenity, City, Place, Review, State, User]
-    name_list = ['amenities', 'cities', 'places', 'reviews', 'states', 'users']
-
-    object_dict = {}
-    for index, object in enumerate(object_list):
-        object_count = storage.count(object)
-        object_dict[name_list[index]] = object_count
-
-    return jsonify(object_dict)
+def count():
+    '''retrieves the number of each objects by type'''
+    count_dict = {}
+    for cls in classes:
+        count_dict[cls] = storage.count(classes[cls])
+    return jsonify(count_dict)
