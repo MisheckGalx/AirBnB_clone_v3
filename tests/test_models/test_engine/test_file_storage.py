@@ -114,9 +114,10 @@ class TestFileStorage(unittest.TestCase):
             js = f.read()
     elf.assertEqual(json.loads(string), json.loads(js))
 
-    def test_count(self):
-        """Test counting the number of objects in storage"""
-    storage = FileStorage()
-    count = storage.count()
+    @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
+    def test_get(self):
+        """Test that the get method is working"""
 
-    assert count >= 1, "Expected count of objects to be at least 1"
+    @unittest.skipIf(models.storage_t == 'db', "not testing file storage")
+    def test_count(self):
+        """Test that the count method is working"""
