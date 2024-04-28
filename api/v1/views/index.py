@@ -11,6 +11,7 @@ from models.place import Place
 from models.state import State
 from models.review import Review
 
+
 @app_views.route('/stats', methods=['GET'])
 def retrieve_object_number():
     """Retrieves the number of each object by type"""
