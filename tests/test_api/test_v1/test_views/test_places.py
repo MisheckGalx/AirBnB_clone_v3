@@ -25,8 +25,8 @@ class TestPlaces(unittest.TestCase):
             storage.new(new_city)
             new_user = User(email="abc@test.com", password="test123")
             storage.new(new_user)
-            new_place = Place(name="Debrian's Kitchen",
-                              description="best kitchen in town", number_rooms=3,
+            new_place = Place(name="Brian's Kitchen",
+                              description="the best kitchen", number_rooms=3,
                               number_bathrooms=0, max_guest=2,
                               price_by_night=100, latitude=33.0,
                               longitude=22.1, city_id=new_city.id,
@@ -46,8 +46,8 @@ class TestPlaces(unittest.TestCase):
             storage.new(new_city)
             new_user = User(email="abc@test.com", password="test123")
             storage.new(new_user)
-            new_place = Place(name="Debrian's Kitchen",
-                              description="best kitchen in town", number_rooms=3,
+            new_place = Place(name="Brian's Kitchen",
+                              description="the best kitchen", number_rooms=3,
                               number_bathrooms=0, max_guest=2,
                               price_by_night=100, latitude=33.0,
                               longitude=22.1, city_id=new_city.id,
@@ -74,8 +74,8 @@ class TestPlaces(unittest.TestCase):
             storage.new(new_city)
             new_user = User(email="abc@test.com", password="test123")
             storage.new(new_user)
-            new_place = Place(name="Debrian's Kitchen",
-                              description="best kitchen in town", number_rooms=3,
+            new_place = Place(name="Brian's Kitchen",
+                              description="the best kitchen", number_rooms=3,
                               number_bathrooms=0, max_guest=2,
                               price_by_night=100, latitude=33.0,
                               longitude=22.1, city_id=new_city.id,
@@ -84,7 +84,7 @@ class TestPlaces(unittest.TestCase):
             resp = c.get('api/v1/places/{}'.format(new_place.id))
             self.assertEqual(resp.status_code, 200)
             resp1 = c.delete('api/v1/places/{}'.format(new_place.id))
-            self.assertEqual(resp1.status_code, 404)
+            self.assertEqual(resp1.status_code, 200)
             resp2 = c.get('api/v1/places/{}'.format(new_place.id))
             self.assertEqual(resp2.status_code, 404)
 
@@ -97,8 +97,8 @@ class TestPlaces(unittest.TestCase):
             storage.new(new_city)
             new_user = User(email="abc@test.com", password="test123")
             storage.new(new_user)
-            new_place = Place(name="Debrian's Kitchen",
-                              description="best kitchen in town", number_rooms=3,
+            new_place = Place(name="Brian's Kitchen",
+                              description="the best kitchen", number_rooms=3,
                               number_bathrooms=0, max_guest=2,
                               price_by_night=100, latitude=33.0,
                               longitude=22.1, city_id=new_city.id,
@@ -116,8 +116,8 @@ class TestPlaces(unittest.TestCase):
             storage.new(new_city)
             new_user = User(email="abc@test.com", password="test123")
             storage.new(new_user)
-            new_place = Place(name="Debrian's Kitchen",
-                              description="best kitchen in town", number_rooms=3,
+            new_place = Place(name="Brian's Kitchen",
+                              description="the best kitchen", number_rooms=3,
                               number_bathrooms=0, max_guest=2,
                               price_by_night=100, latitude=33.0,
                               longitude=22.1, city_id=new_city.id,
