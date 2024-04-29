@@ -72,6 +72,7 @@ test_file_storage.py'])
 @unittest.skipIf(models.storage_t == 'db', 'not testing dbstorage')
 class TestFileStorage(unittest.TestCase):
     """Test the FileStorage class"""
+
     def test_all_returns_dict(self):
         """Test that all returns the FileStorage.__objects attr"""
         from models import storage

@@ -16,6 +16,7 @@ from models import storage
 
 class TestPlaces(unittest.TestCase):
     '''test city'''
+
     def test_lists_places_of_city(self):
         '''test places GET route'''
         with app.test_client() as c:

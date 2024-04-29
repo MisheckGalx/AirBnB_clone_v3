@@ -13,6 +13,7 @@ from models import storage
 
 class TestUsers(unittest.TestCase):
     '''test user'''
+
     def test_lists_users(self):
         '''test user GET route'''
         with app.test_client() as c:

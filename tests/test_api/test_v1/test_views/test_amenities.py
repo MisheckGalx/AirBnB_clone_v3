@@ -13,6 +13,7 @@ from models import storage
 
 class TestAmenities(unittest.TestCase):
     '''Test amenity'''
+
     def test_lists_amenities(self):
         '''Test amenity GET route'''
         with app.test_client() as c:

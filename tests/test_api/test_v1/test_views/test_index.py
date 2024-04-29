@@ -13,6 +13,7 @@ storage = getenv("HBNB_TYPE_STORAGE")
 
 class TestIndex(unittest.TestCase):
     '''test index'''
+
     def test_status(self):
         '''test status function'''
         with app.test_client() as c:
