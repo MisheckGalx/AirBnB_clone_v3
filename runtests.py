@@ -1,3 +1,5 @@
+#!/usr/bin/python3
+'''Runtests script'''
 import subprocess as sp
 
 
